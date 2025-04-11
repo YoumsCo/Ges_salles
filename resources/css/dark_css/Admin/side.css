@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --sidebar-width: 250px;
+    --menu-left: 200px;
+    --z-index: 3;
+    --blue-prefer: rgba(20, 20, 41, 0.514);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: whitesmoke;
+}
+
+.active-element {
+    transition: all .5s ease-in-out;
+    background: whitesmoke;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+    opacity: 1 !important;
+}
+
+#container {
+    transition: all .5s ease-in-out;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: var(--sidebar-width);
+    background: rgba(0, 0, 0, 0.559);
+    height: 100vh;
+    overflow: hidden;
+    list-style: none;
+    z-index: var(--z-index);
+}
+
+#container p {
+    transition: all .5s ease-in-out;
+    font: 20pt;
+    position: absolute;
+    top: 0;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgba(245, 245, 245, 0.055);
+    height: 100px;
+    font-size: 20pt;
+}
+
+.hide-p {
+    transition: all .05s ease-in-out;
+    opacity: 0;
+    z-index: -100;
+}
+
+#container .links {
+    transition: all .5s ease-in-out;
+    width: 90%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13pt;
+    border-bottom: 2px solid whitesmoke;
+}
+
+#container .links:hover {
+    transition: all .5s ease-in-out;
+    background: whitesmoke;
+    color: black;
+    font-weight: bolder;
+    opacity: 1 !important;
+}
+
+#container .links:active {
+    transition: all .3s ease-in-out;
+    transform: scale(.9);
+}
+
+#container:hover .links:not(:hover) {
+    transition: all .3s ease-in-out;
+    opacity: .4;
+}
+
+#menu {
+    transition: all .4s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: var(--menu-left);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    z-index: var(--z-index);
+}
+
+#menu div {
+    transition: all .3s ease-in-out;
+    background: whitesmoke;
+    width: 100%;
+    height: 3px;
+}
+
+#menu.active-menu div:nth-child(even) {
+    transition: all .3s ease-in-out;
+    visibility: hidden;
+    z-index: -10;
+}
+
+#menu.active-menu div:first-child {
+    transition: all .3s ease-in-out;
+    transform: rotate(150deg);
+    position: absolute;
+}
+
+#menu.active-menu div:last-child {
+    transition: all .3s ease-in-out;
+    transform: rotate(-150deg);
+    position: absolute;
+}

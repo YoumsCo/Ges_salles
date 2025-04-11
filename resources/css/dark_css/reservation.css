@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --blue-prefer: rgb(4, 4, 45);
+}
+
+form {
+    border: 4px solid aquamarine;
+    box-shadow: 0 3px 10px aquamarine;
+}
+
+form label,
+form H2 {
+    color: wheat;
+}
+
+form label + input,
+form H2 span {
+    color: gray;
+}
+
+form button[type="submit"] {
+    border: 4px solid aquamarine;
+    color: var(--blue-prefer);
+    background: aquamarine;
+}
+
+form button[type="submit"]:hover {
+    background: transparent;
+    color: aquamarine;
+    box-shadow: 0 3px 10px aquamarine;
+}
+
+form button[type="submit"]:active {
+    transform: scale(.7);
+}
+
+form button[type="submit"]::before {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -4.5px;
+    width: 0;
+    height: 4px;
+    background: var(--blue-prefer);
+}
+
+form button[type="submit"]:hover::before {
+    left: 0;
+    width: 100%;
+}
+
+form button[type="submit"]::after {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4.5px;
+    width: 0;
+    height: 4px;
+    background: var(--blue-prefer);
+}
+
+form button[type="submit"]:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 950px) {
+    form {
+        width: 60% !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    form {
+        width: 70% !important;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    form {
+        width: 80% !important;
+    }
+
+    form div label {
+        font-size: 12pt !important;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    form {
+        width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    form div label,
+    form div input[type="text"],
+    form div input[type="date"] {
+        font-size: 10pt !important;
+    }
+}

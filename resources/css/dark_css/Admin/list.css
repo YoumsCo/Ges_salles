@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*::-webkit-scrollbar {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: aquamarine;
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+    border-radius: 20px;
+}
+
+/*
+****************************************************************************************
+CSS de la session flash
+****************************************************************************************
+*/
+.element-hidden {
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    z-index: -100 !important;
+    pointer-events: none;
+}
+
+#session {
+    background: rgba(245, 245, 245, 0.1);
+    border-radius: 0 0 50px 50px;
+    animation: session 1 2.5s linear;
+}
+
+@keyframes session {
+    from {
+        height: 0;
+    }
+    to {
+        height: 180px;
+    }
+}
+
+#session span {
+    transform: all .4s ease-in-out;
+    animation: session-message 1 .5s linear;
+}
+
+@keyframes session-message {
+    from {
+        font-size: 5pt;
+    }
+    to {
+        font-size: 14px;
+    }
+}
+
+
+/*
+****************************************************************************************
+Liens
+****************************************************************************************
+*/
+
+a#add:hover {
+    color: whitesmoke;
+    box-shadow: 0 3px 5px whitesmoke;
+}
+
+

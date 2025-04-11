@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --blue-prefer: rgb(5, 5, 40);
+}
+
+
+#container {
+    border: 2px solid aquamarine;
+    animation-delay: 5s;
+    animation-duration: 15s;
+}

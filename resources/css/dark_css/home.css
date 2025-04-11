@@ -1,0 +1,456 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --blue-prefer: rgb(5, 5, 40);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: aquamarine;
+    border-radius: 20px;
+}
+
+body {
+    transition: all .4s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background: black;
+    overflow-x: hidden;
+}
+
+body.missing-connection::after {
+    transition: all .4s ease-in-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "Vous n'etes pas connecté à internet";
+    background: aquamarine;
+    color: var(--blue-prefer);
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    animation: missing-connection .5s 1 linear ;
+}
+
+@keyframes missing-connection {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 30px;
+    }
+}
+
+
+/*
+****************************************************************************************
+CSS de la session flash
+****************************************************************************************
+*/
+.element-hidden {
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    z-index: -100 !important;
+    pointer-events: none;
+}
+
+#session,
+#notif {
+    transition: all .4s ease-in-out;
+    position: fixed;
+    top: 0;
+    background: rgba(245, 245, 245, 0.1);
+    color: whitesmoke;
+    width: 300px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border: 2px solid whitesmoke;
+    border-radius: 0 0 50px 50px;
+    animation: session 1 2.5s linear;
+}
+
+@keyframes session {
+    from {
+        height: 0;
+    }
+    to {
+        height: 180px;
+    }
+}
+
+#session span,
+#notif span {
+    transform: all .4s ease-in-out;
+    background: black;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: bolder;
+    font-size: 14pt;
+    border-radius: 20px;
+    padding: 10px;
+    animation: session-message 1 .5s linear;
+}
+
+@keyframes session-message {
+    from {
+        font-size: 5pt;
+    }
+    to {
+        font-size: 14px;
+    }
+}
+
+#session .fa-close,
+#notif .fa-close {
+    transform: all .4s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 20pt;
+}
+
+/*
+****************************************************************************************
+CSS du container
+****************************************************************************************
+*/
+
+#container {
+    transition: all .4s ease-in-out;
+    position: relative;
+    width: 94%;
+}
+
+/*
+****************************************************************************************
+CSS de la barre de recherche
+****************************************************************************************
+*/
+
+
+#container .search {
+    transition: all .4s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    gap: 20;
+}
+
+#container .search [type="search"] {
+    transition: all .4s ease-in-out;
+    border-bottom: 5px solid aquamarine;
+    color: aquamarine;
+    z-index: 10;
+}
+
+#container .search [type="search"]::placeholder {
+    transition: all .4s ease-in-out;
+    color: aquamarine;
+}
+
+#container .search button {
+    color: aquamarine;
+}
+
+/*
+****************************************************************************************
+CSS de la photo de profile et du menu
+****************************************************************************************
+*/
+
+#container .search #picture_and_settings {
+    transition: all .4s ease-in-out;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20;
+}
+
+/*
+****************************************************************************************
+CSS de la photo de profile
+****************************************************************************************
+*/
+
+#container .search #picture_and_settings a img {
+    transition: all .4s ease-in-out;
+    position: absolute;
+    right: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
+
+
+
+/*
+****************************************************************************************
+CSS de l'icone de menu
+****************************************************************************************
+*/
+
+#container .search #picture_and_settings #information span {
+    color: aquamarine;
+}
+
+#container .search #picture_and_settings .fa-sliders {
+    transition: all .2s ease-in-out;
+    color: aquamarine;
+}
+
+#container .search #picture_and_settings .fa-sliders:hover {
+    filter: drop-shadow(0 5px 2px aquamarine);
+}
+
+/*
+****************************************************************************************
+CSS du menu
+****************************************************************************************
+*/
+
+#container .search #picture_and_settings #menu {
+    transition: all .2s ease-in-out;
+    background: black;
+    filter: drop-shadow(0 5px 2px aquamarine);
+    z-index: 100;
+}
+#menu.animate-menu {
+    animation: menu 1 .5s linear;
+}
+
+#container .search #picture_and_settings #menu li {
+    transition: all .2s ease-in-out;
+    box-shadow: 0 3px 5px aquamarine;
+    color: aquamarine;
+}
+
+#container .search #picture_and_settings .fa-sliders #menu:hover {
+    filter: none;
+}
+
+@keyframes menu {
+    0% {
+        transform: translateY(-25%);
+    }
+    50% {
+        transform: translateY(25%);
+    }
+}
+
+#container .search #picture_and_settings #menu #contact::after {
+    transition: all .4s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(18px);
+    content: "";
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 40px 10px;
+    background: black;
+    border: 2px solid rgb(24, 125, 92);
+    border-left: none;
+    z-index: -1;
+}
+
+
+/*
+****************************************************************************************
+CSS des salles
+****************************************************************************************
+*/
+
+#container .container-room {
+    transition: all .4s ease-in-out;
+    box-shadow: 0 3px 5px whitesmoke;
+}
+
+#container .container-room .container-room-name button {
+    transition: all .4s ease-in-out;
+    position: relative;
+    border: 5px solid aquamarine;
+    background: aquamarine;
+    color: var(--blue-prefer);
+}
+
+#container .container-room .container-room-name button:hover {
+    background: transparent;
+    color: aquamarine;
+    box-shadow: 0 5px 10px aquamarine;
+}
+
+#container .container-room .container-room-name button:active {
+    transform: scale(.6);
+}
+
+#container .container-room .container-room-name button::before {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    background: var(--blue-prefer);
+    width: 0;
+    height: 3px;
+}
+
+#container .container-room .container-room-name button:hover::before {
+    left: 0;
+    width: 100%;
+}
+
+#container .container-room .container-room-name button::after {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: -4px;
+    background: var(--blue-prefer);
+    width: 0;
+    height: 3px;
+}
+
+#container .container-room .container-room-name button:hover::after {
+    right: 0;
+    width: 100%;
+}
+
+#container .container-img img {
+    box-shadow: 5px 0 10px aquamarine;
+}
+
+/*
+****************************************************************************************
+Responsive web design
+****************************************************************************************
+*/
+
+@media screen and (max-width: 630px) {
+    #container {
+        transition: all .4s ease-in-out;
+        width: 85%;
+        gap: 26px;
+    }
+
+    .search #form-search {
+        flex-direction: column;
+    }
+
+    .search #form-search button {
+        position: absolute;
+        top: 40px;
+        left: 25vw;
+    }
+
+    .search #form-search button::before {
+        transition: all .4s ease-in-out;
+        position: absolute;
+        content: "Rechercher";
+        top: 2px;
+        left: -10vw;
+        background: aquamarine;
+        color: var(--blue-prefer);
+        font-weight: bolder;
+        width: 150px;
+        height: 25px;
+    }
+
+    .search #form-search button::after {
+        transition: all .4s ease-in-out;
+        position: absolute;
+        content: "";
+        top: 24px;
+        background: var(--blue-prefer);
+        width: 0;
+        height: 3px;
+    }
+
+    .search form button:hover::after {
+        transition: all .4s ease-in-out;
+        transform: translateX(-50px);
+        width: 148px!important;
+    }
+
+    .container-room {
+        transition: all .4s ease-in-out;
+        flex-direction: column;
+    }
+
+    .container- {
+        transition: all .4s ease-in-out;
+        width: 100% !important;
+    }
+
+    .container-room-name {
+        transition: all .4s ease-in-out;
+        width: 100% !important;
+    }
+
+    #container .container-img {
+        width: 100%;
+    }
+
+    #container .container-img img {
+        box-shadow: 0 5px 10px aquamarine;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #picture_and_settings #list #contact {
+        transform: translate(220px, 88%);
+    }
+
+    #container .search #picture_and_settings #menu #contact::after {
+        transition: all .4s ease-in-out;
+        position: absolute;
+        top: -20px;
+        content: "";
+        width: 130%;
+        height: 15px;
+        border-radius: 40px 40px 0 0;
+        background: black;
+        border: 2px solid rgb(24, 125, 92);
+        border-left: none;
+        z-index: -10;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #container .search [type="search"] {
+        transition: all .4s ease-in-out;
+        width: 70%;
+    }
+
+    #form-search {
+        transform: translateX(-40px);
+    }
+}

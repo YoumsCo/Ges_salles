@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --blue-prefer: rgb(5, 5, 40);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.element-hidden {
+    transition: all .4s ease-in-out;
+    opacity: 0;
+    z-index: -100 !important;
+}
+
+
+#container {
+    border: 2px solid aquamarine;
+    animation-delay: 5s;
+    animation-duration: 15s;
+}
+
+/*
+*************************************************************************************
+    Gestion de la fenetre de changement de la photo de profile
+*************************************************************************************
+*/
+
+#contain-all {
+    background: rgba(245, 245, 245, 0.094);
+}
+
+#contain-all .fa-close {
+    color: aquamarine;
+}
+
+#contain-all #change-profile {
+    border: 5px solid aquamarine;
+}
+
+#contain-all #form-profile {
+    display: none;
+}
+
+#contain-all #button-div label {
+    transition: all .4s ease-in-out;
+    border: 5px solid aquamarine;
+    background: aquamarine;
+    color: var(--blue-prefer);
+}
+
+#contain-all #button-div label:hover {
+    background: transparent;
+    color: aquamarine;
+    box-shadow: 0 5px 10px aquamarine;
+}
+
+#contain-all #button-div label:active {
+    transform: scale(.6);
+}
+
+#contain-all #button-div label:before {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    background: var(--blue-prefer);
+    width: 0;
+    height: 3px;
+}
+
+#contain-all #button-div label:hover:before {
+    left: 0;
+    width: 100%;
+}
+
+#contain-all #button-div label::after {
+    transition: all .4s ease-in-out;
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: -4px;
+    background: var(--blue-prefer);
+    width: 0;
+    height: 3px;
+}
+
+#contain-all #button-div label:hover::after {
+    right: 0;
+    width: 100%;
+}
